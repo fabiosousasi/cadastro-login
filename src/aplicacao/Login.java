@@ -1,5 +1,6 @@
 package aplicacao;
 
+import java.util.Date;
 import java.util.Scanner;
 
 import entidade.Cadastro;
@@ -9,8 +10,9 @@ public class Login {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		//CADASTRO
+		//Entrando com os dados da pessoa
 		System.out.println("*****CADASTRO*****");
+		
 		System.out.print("Digite seu nome: ");
 		String nome = sc.nextLine();
 		
@@ -21,14 +23,15 @@ public class Login {
 		int idade = sc.nextInt();
 		
 		System.out.print("Digite o ano de nascimento: ");
-		int anoNascimento = sc.nextInt();
+		sc.nextLine();
+		String anoNascimento = sc.nextLine();
 		
 		System.out.print("\nCriar Usuario: ");
-		sc.nextLine();
 		String usuario = sc.nextLine();
 		
 		System.out.print("Criar Senha: ");
 		String senha = sc.nextLine();
+		
 		
 		Cadastro cadastro = new Cadastro(nome, email, idade, anoNascimento, usuario, senha);
 		//FIM CADASTRO
@@ -36,6 +39,7 @@ public class Login {
 		//CONFIRMAÇÃO DO USUARIO
 		System.out.println("USUARIO CADASTRADO COM SUCESSO!");
 		System.out.println("\n*****ENTRE COM O SEU LOGIN*****");
+		
 		System.out.print("Digite o Usuario: ");
 		String confirmacaoUsuario = sc.nextLine();
 		

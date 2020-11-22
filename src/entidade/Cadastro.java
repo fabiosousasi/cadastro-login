@@ -1,17 +1,19 @@
 package entidade;
 
+import java.text.SimpleDateFormat;
+
 public class Cadastro {
 	private String nome;
 	private String email;
 	private int idade;
-	private int anoNascimento;
+	private String anoNascimento;
 	private String usuario;
 	private String senha;
 	
 	//CONSTRUTOR
 	public Cadastro(){
 	}
-	public Cadastro(String nome, String email, int idade, int anoNascimento, String usuario, String senha) {
+	public Cadastro(String nome, String email, int idade, String anoNascimento, String usuario, String senha) {
 		this.nome = nome;
 		this.email = email;
 		this.idade = idade;
@@ -39,17 +41,11 @@ public class Cadastro {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	public int getAnoNascimento() {
+	public String getAnoNascimento() {
 		return anoNascimento;
-	}
-	public void setAnoNascimento(int anoNascimento) {
-		this.anoNascimento = anoNascimento;
 	}
 	public String getUsuario() {
 		return usuario;
-	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
 	}
 	public String getSenha() {
 		return senha;
@@ -61,7 +57,7 @@ public class Cadastro {
 				+ "\nNome: " + nome
 				+ "\nemail: " + email
 				+ "\nidade: " + idade
-				+ "\nAno nascimento: " + anoNascimento;
+				+ "\nAno nascimento: " + anoNascimento.substring(0,2) + "/" + anoNascimento.substring(2,4) + "/" + anoNascimento.substring(4,8);
 	}
 	
 	
