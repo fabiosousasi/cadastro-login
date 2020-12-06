@@ -53,7 +53,7 @@ public class Cadastro {
 	
 	
 	public String toString() {
-		return       "SEU PERFIL"
+		return       "SEUS DADOS CADASTRADOS"
 				+ "\nNome: " + nome
 				+ "\nemail: " + email
 				+ "\nidade: " + idade

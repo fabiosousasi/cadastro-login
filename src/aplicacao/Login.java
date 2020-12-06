@@ -10,7 +10,7 @@ public class Login {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		//Entrando com os dados da pessoa
+		//Guardando os dados da pessoa
 		System.out.println("*****CADASTRO*****");
 		
 		System.out.print("Digite seu nome: ");
@@ -26,21 +26,22 @@ public class Login {
 		sc.nextLine();
 		String anoNascimento = sc.nextLine();
 		
-		System.out.print("\nCriar Usuario: ");
+		//Criando o Usuário e Senha
+		System.out.print("\nEscolha o nome de Usuário: ");
 		String usuario = sc.nextLine();
 		
-		System.out.print("Criar Senha: ");
+		System.out.print("Escolha uma Senha: ");
 		String senha = sc.nextLine();
 		
-		
 		Cadastro cadastro = new Cadastro(nome, email, idade, anoNascimento, usuario, senha);
+		System.out.println("USUÁRIO CADASTRADO COM SUCESSO!");
 		//FIM CADASTRO
 		
-		//CONFIRMAÇÃO DO USUARIO
-		System.out.println("USUARIO CADASTRADO COM SUCESSO!");
-		System.out.println("\n*****ENTRE COM O SEU LOGIN*****");
+		//Fazendo o login para acessar os dados cadastrados. São 3 tentativas, caso as 3 estejam erradas é preciso fazer todo o cadastro de novo.
+		System.out.println("*****************************************************************************");
+		System.out.println("\nINFORME O USUÁRIO E A SENHA CRIADOS. VOCÊ TEM TRÊS TENTATIVAS");
 		
-		System.out.print("Digite o Usuario: ");
+		System.out.print("Digite o Usuário: ");
 		String confirmacaoUsuario = sc.nextLine();
 		
 		if(confirmacaoUsuario.equals(cadastro.getUsuario())) {
@@ -48,10 +49,10 @@ public class Login {
 		}
 		else {
 			int tentativaUsuario = 3;
-			while(! confirmacaoUsuario.equals(cadastro.getUsuario()) && tentativaUsuario > 1) {
+			while(!confirmacaoUsuario.equals(cadastro.getUsuario()) && tentativaUsuario > 1) {
 				tentativaUsuario--;
 				System.out.println("\nUsuario Incorreto. Você tem mais " + tentativaUsuario + " tentativas");
-				System.out.print("Digite o Usuario: ");
+				System.out.print("Digite o Usuário: ");
 				confirmacaoUsuario = sc.nextLine();
 			}
 			if(confirmacaoUsuario.equals(cadastro.getUsuario())) {
@@ -59,7 +60,7 @@ public class Login {
 			}
 			else {
 				System.out.println("Usuario Incorreto!");
-				System.out.println("Por medida de segurança faça o cadastro mais uma vez.");
+				System.out.println("Por medida de segurança vai ser preciso fazer todo o cadastro de novo.");
 				System.exit(0); //FINALIZA O PROGRAMA
 			}
 		}//FIM DA CONFIRMAÇÃO DO USUARIO
@@ -83,7 +84,7 @@ public class Login {
 			}
 			else {
 				System.out.println("Senha Incorreto!");
-				System.out.println("Por medida de segurança faça o cadastro mais uma vez.");
+				System.out.println("Por medida de segurança vai ser preciso fazer todo o cadastro de novo.");
 				System.exit(0); //FINALIZA O PROGRAMA
 			}
 		} //FIM DA CONFIRMAÇÃO DA SENHA
